@@ -2,28 +2,33 @@
 
 EBOOK est un site ou on peut lire et commenter des livres
 
-## Installation
+## Environnement de développement
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+### Installation
 
-```bash
-pip install foobar
+* PHP Minimun 7.2
+* Composer
+
+### Lancer l'environnement de développement
+
+
+```
+php bin/console doctrine:database:create
+symfony server:start
 ```
 
-## Usage
+## Intégration des tables
 
-```python
-import foobar
+### Création des entités
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
 ```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+symfony console make:entity
+```
+### Création des requêtes dans la migration
+```
+symfony console make:migartion
+```
+### Création des tables dans phpMyAdmin
+```
+php bin/console doctrine:migrations:migrate
+```
